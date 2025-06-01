@@ -7,17 +7,35 @@
 </head>
 <body>
 
-    <!-- Free shipping banner -->
-    <div id="shipping-banner">
-        <p>FREE SHIPPING OVER $200</p>
-    </div>
-
     <!-- Header / Navbar -->
     <header>
-        <div id="logo">
-            <img src="logo.png" alt="Poppyshop Logo">
+        <div class="shipping-banner">FREE SHIPPING OVER $200</div>
+
+        <div class="header-bar">
+            <div class="menu-icon">
+                <img src="menu-icon.png" alt="Menu" onclick="toggleMobileMenu()">
+            </div>
+
+            <div class="header-logo">
+                <div class="logo-oval">
+                    <a href="#"><img src="logo.png" alt="Poppyshop Logo"></a>
+                </div>
+            </div>
+
+            <div class="header-actions">
+                <a class="header-icon" href="#">
+                    <img src="cart-icon.png" alt="Cart Icon">
+                    <span>Cart</span>
+                </a>
+                <a class="header-icon" href="#">
+                    <img src="login-icon.png" alt="Login Icon">
+                    <span>Log in</span>
+                </a>
+            </div>
         </div>
-        <nav>
+
+        <!-- Main Navigation -->
+        <nav class="main-nav">
             <ul>
                 <li><a href="#">Home</a></li>
                 <li><a href="#">Shop</a></li>
@@ -28,10 +46,31 @@
                 <li><a href="#">Contact</a></li>
             </ul>
         </nav>
-        <div id="header-actions">
-            <a href="#" id="cart">Cart</a>
-            <a href="#" id="login">Log in</a>
-        </div>
+
+
+        <!-- Mobile Navigation Menu -->
+        <nav class="mobile-nav" id="mobile-nav">
+            <div class="mobile-nav-header">
+                <img src="close-icon.svg" alt="Close" onclick="toggleMobileMenu()">
+            </div>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li>
+                    <a href="#">Shop</a>
+                    <ul>
+                        <li><a href="#">New Arrivals</a></li>
+                        <li><a href="#">Ages</a></li>
+                        <li><a href="#">Gift Occasions</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Home & Decor</a></li>
+                <li><a href="#">Toys</a></li>
+                <li><a href="#">Games & Puzzles</a></li>
+                <li><a href="#">Our Story</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+
     </header>
 
     <!-- Hero Section with Toys Image -->
@@ -47,29 +86,63 @@
             With the core value of play base learning at its heart.
         </p>
         <div id="welcome-buttons">
-            <button>More About Us</button>
-            <button>Shop Now!</button>
+            <button id="more-about-us">MORE ABOUT US</button>
+            <button id="shop-now">SHOP NOW!</button>
         </div>
     </section>
 
     <!-- Product Search -->
     <section id="search">
-        <input type="text" placeholder="Product Search">
-        <button>🔍</button>
+        <div class="search-bar">
+            <input type="text" placeholder="Product Search">
+            <button type="submit">
+                <img src="search-icon.png" alt="Search">
+            </button>
+        </div>
     </section>
 
     <!-- Category Grid -->
     <section id="categories">
-        <div class="category"><img src="whats-new.jpg" alt="What's New"><p>What's New?</p></div>
-        <div class="category"><img src="wooden-toys.jpg" alt="Wooden Toys"><p>Wooden Toys</p></div>
-        <div class="category"><img src="pretend-play.jpg" alt="Pretend Play"><p>Pretend Play</p></div>
-        <div class="category"><img src="brands.jpg" alt="Brands"><p>Brands</p></div>
-        <div class="category"><img src="birthday.jpg" alt="1st Birthday"><p>1st Birthday</p></div>
-        <div class="category"><img src="gift-voucher.jpg" alt="Gift Voucher"><p>Gift Voucher</p></div>
-        <div class="category"><img src="gift-ideas.jpg" alt="Gift Ideas"><p>Gift Ideas</p></div>
-        <div class="category"><img src="games-puzzles.jpg" alt="Games & Puzzles"><p>Games & Puzzles</p></div>
-        <div class="category"><img src="new-baby.jpg" alt="New Baby"><p>New Baby</p></div>
-        <div class="category"><img src="for-you.jpg" alt="For You"><p>For You</p></div>
+        <a class="category" href="#">
+            <img src="whats-new.jpg" alt="What's New?">
+            <p>What’s New?</p>
+        </a>
+        <a class="category" href="#">
+            <img src="wooden-toys.jpg" alt="Wooden Toys">
+            <p>Wooden Toys</p>
+        </a>
+        <a class="category" href="#">
+            <img src="pretend-play.jpg" alt="Pretend Play">
+            <p>Pretend Play</p>
+        </a>
+        <a class="category" href="#">
+            <img src="brands.jpg" alt="Brands">
+            <p>Brands</p>
+        </a>
+        <a class="category" href="#">
+            <img src="1st-birthday.jpg" alt="1st Birthday">
+            <p>1st Birthday</p>
+        </a>
+        <a class="category" href="#">
+            <img src="gift-voucher.jpg" alt="Gift Voucher">
+            <p>Gift Voucher</p>
+        </a>
+        <a class="category" href="#">
+            <img src="gift-ideas.jpg" alt="Gift Ideas">
+            <p>Gift Ideas</p>
+        </a>
+        <a class="category" href="#">
+            <img src="games-puzzles.jpg" alt="Games & Puzzles">
+            <p>Games & Puzzles</p>
+        </a>
+        <a class="category" href="#">
+            <img src="new-baby.jpg" alt="New Baby">
+            <p>New Baby</p>
+        </a>
+        <a class="category" href="#">
+            <img src="for-you.jpg" alt="For You">
+            <p>For You</p>
+        </a>
     </section>
 
     <!-- Footer Section -->
@@ -116,5 +189,11 @@
         </div>
     </footer>
 
+    <script>
+    function toggleMobileMenu() {
+        const menu = document.getElementById('mobile-nav');
+        menu.classList.toggle('open');
+    }
+    </script>
 </body>
 </html>
