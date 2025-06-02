@@ -1,207 +1,6 @@
 /* Load all required Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Mada&family=Merge+One&family=Nunito&family=Nunito+Sans&family=Noto+Sans&family=Playpen+Sans&family=Poppins:wght@400;600&family=Rounded+Mplus+1c:wght@700&display=swap');
 
-/* General Reset and Base */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    line-height: 1.6;
-    background-color: #fff;
-}
-
-/* Free Shipping Banner (bold + centered) */
-.shipping-banner {
-    background-color: #ff00aa;
-    color: white;
-    text-align: left;
-    font-family: 'Noto Sans', sans-serif;
-    font-weight: bold;
-    padding-left: 6px;
-}
-
-/* Header Bar (menu + logo + icons) */
-.header-bar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background-color: #ffe600;
-    padding: 20px;
-    padding-top: 30px;
-    position: relative;
-}
-
-.menu-icon {
-    display: none;
-}
-
-.menu-icon img {
-    width: 30px;
-    cursor: pointer;
-}
-
-/* Absolutely center the logo on the screen */
-.header-logo {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 10;
-}
-
-/* Keep logo styling intact */
-.logo-oval {
-    display: inline-block;
-    padding: 10px 40px;
-    border-radius: 50%;
-    background-color: white;
-    border: 1px solid blue;
-}
-
-.logo-oval img {
-    height: 70px;
-}
-
-/* Push icons to the far right */
-.header-actions {
-    margin-left: auto; /* ← this is crucial */
-    display: flex;
-    align-items: center;
-    gap: 20px;
-}
-
-.menu-icon {
-    display: none; /* Shown only on mobile */
-}
-
-.menu-icon img {
-    width: 30px;
-    height: 30px;
-    cursor: pointer;
-}
-
-.header-icon {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-decoration: none;
-    color: black;
-    font-family: 'Poppins', sans-serif;
-    font-weight: 600;
-}
-
-.header-icon img {
-    width: 30px;
-    height: 30px;
-    margin-bottom: 5px;
-}
-
-/* Desktop navigation (default) */
-.main-nav {
-    display: block; /* Ensure it’s visible */
-    background-color: #ffe600;
-    text-align: center;
-    padding: 10px 0;
-}
-
-.main-nav ul {
-    display: inline-flex;
-    gap: 25px;
-    list-style: none;
-    font-family: 'Mada', sans-serif;
-    font-weight: bold;
-    padding: 0;
-    margin: 0;
-}
-
-.main-nav a {
-    color: black;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-/* Hero Section */
-#hero-image img {
-    width: 100%;
-    display: block;
-    object-fit: cover;
-}
-
-/* Mobile Navigation */
-#mobile-menu-toggle {
-    display: none;
-    padding: 10px 20px;
-    background-color: #ffe600;
-}
-
-#mobile-menu-toggle img {
-    width: 30px;
-    cursor: pointer;
-}
-
-.mobile-nav {
-    display: none;
-    flex-direction: column;
-    background-color: #ffe600;
-    width: 100%;
-    height: 100vh;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 9999;
-    padding: 20px;
-    overflow-y: auto;
-}
-
-.mobile-nav.open {
-    display: flex;
-}
-
-.mobile-nav-header {
-    display: flex;
-    justify-content: flex-start;
-    margin-bottom: 20px;
-}
-
-.mobile-nav-header img {
-    width: 30px;
-    cursor: pointer;
-}
-
-.mobile-nav ul {
-    list-style: none;
-    padding-left: 0;
-    font-family: 'Mada', sans-serif;
-    font-weight: bold;
-}
-
-/* Mobile nav menu item lines */
-.mobile-nav li {
-    margin-bottom: 0;
-    padding: 15px 0;
-    border-bottom: 1px solid black;
-}
-
-/* Optional: remove line from last item */
-.mobile-nav li:last-child {
-    border-bottom: none;
-    padding-bottom: 0;
-}
-
-/* Indent submenus (like Shop > Ages) */
-.mobile-nav ul ul {
-    padding-left: 20px;
-    border-bottom: none;
-}
-
-
-.mobile-nav a {
-    text-decoration: none;
-    color: black;
-}
-
 /* Welcome Section */
 #welcome {
     background-color: #00f0f0;
@@ -237,15 +36,24 @@ body {
     cursor: pointer;
 }
 
+#welcome-buttons a#shop-now {
+    font-family: 'Rounded Mplus 1c', sans-serif;
+    font-weight: bold;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+    border: none;
+    width: 150px;
+    padding: 10px 20px;
+    cursor: pointer;
+    background-color: #BF00FF;
+    color: white;
+}
+
 #more-about-us {
     background-color: white;
     color: #BF00FF;
     border-color: #BF00FF;
-}
-
-#shop-now {
-    background-color: #BF00FF;
-    color: white;
 }
 
 /* Search Section */
@@ -318,99 +126,8 @@ body {
     font-size: 1rem;
 }
 
-/* Footer */
-#main-footer {
-    background-color: #0e0e1b;
-    color: white;
-    padding: 40px 20px;
-    position: relative;
-    font-family: 'Nunito Sans', sans-serif;
-}
-
-.footer-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    gap: 40px;
-}
-
-.footer-column {
-    min-width: 180px;
-}
-
-.footer-column ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.footer-column img {
-    height: 50px;
-}
-
-.footer-column a {
-    text-decoration: none;
-    color: white;
-    font-size: 0.95rem;
-    display: block;
-    margin-bottom: 10px;
-}
-
-.footer-column address {
-    font-style: italic;
-    font-size: 0.95rem;
-    margin-top: 5px;
-    line-height: 1.5;
-}
-
-#back-to-top {
-    position: absolute;
-    right: 20px;
-    bottom: 20px;
-}
-
-#back-to-top button {
-    background-color: #ccc;
-    border: none;
-    padding: 10px 12px;
-    font-size: 1.2rem;
-    cursor: pointer;
-}
-
 /* Responsive */
 @media (max-width: 700px) {
-    .main-nav {
-        display: none; /* Only hidden on mobile */
-    }
-
-    .menu-icon {
-        display: block;
-    }
-
-    .header-bar {
-        justify-content: space-between;
-    }
-
-    .header-logo {
-        left: 50%;
-        transform: translateX(-50%);
-    }
-
-    .logo-oval img {
-        height: 55px;
-    }
-
-    .menu-icon {
-        order: 1;
-    }
-
-    .header-icon {
-        font-size: 12px;
-    }
-
-    .header-actions {
-        order: 3;
-    }
 
     #categories {
         grid-template-columns: repeat(2, 1fr);
@@ -422,16 +139,5 @@ body {
         width: 210px;
         height: 203px;
         object-fit: cover;
-    }
-
-    .footer-container {
-        flex-direction: column;
-        align-items: center;
-        gap: 20px;
-    }
-
-    #back-to-top {
-        position: static;
-        margin-top: 20px;
     }
 }

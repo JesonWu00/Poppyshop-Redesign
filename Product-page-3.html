@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Poppyshop</title>
+    <link rel="stylesheet" href="Header-footer-styles.css">
+    <link rel="stylesheet" href="LOP-page-styles.css">
+    <script src="cart-popup.js"></script>
+    <script src="cart.js"></script>
+</head>
+<body>
+
+    <!-- Header / Navbar -->
+    <header>
+        <div class="shipping-banner">FREE SHIPPING OVER $200</div>
+
+        <div class="header-bar">
+            <div class="menu-icon">
+                <img src="menu-icon.png" alt="Menu" onclick="toggleMobileMenu()">
+            </div>
+
+            <div class="header-logo">
+                <div class="logo-oval">
+                    <a href="Homepage.html"><img src="logo.png" alt="Poppyshop Logo"></a>
+                </div>
+            </div>
+
+            <div class="header-actions">
+                <a class="header-icon" href="#">
+                    <img src="cart-icon.png" alt="Cart Icon">
+                    <span>Cart</span>
+                </a>
+                <a class="header-icon" href="#">
+                    <img src="login-icon.png" alt="Login Icon">
+                    <span>Log in</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Main Navigation -->
+        <nav class="main-nav">
+            <ul>
+                <li><a href="Homepage.html">Home</a></li>
+                <li><a href="List-of-products-page.html">Shop</a></li>
+                <li><a href="List-of-products-page.html">Home & Decor</a></li>
+                <li><a href="List-of-products-page.html">Toys</a></li>
+                <li><a href="List-of-products-page.html">Games & Puzzles</a></li>
+                <li><a href="#">Our Story</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+
+
+        <!-- Mobile Navigation Menu -->
+        <nav class="mobile-nav" id="mobile-nav">
+            <div class="mobile-nav-header">
+                <img src="close-icon.svg" alt="Close" onclick="toggleMobileMenu()">
+            </div>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li>
+                    <a href="#">Shop</a>
+                    <ul>
+                        <li><a href="#">New Arrivals</a></li>
+                        <li><a href="#">Ages</a></li>
+                        <li><a href="#">Gift Occasions</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Home & Decor</a></li>
+                <li><a href="#">Toys</a></li>
+                <li><a href="#">Games & Puzzles</a></li>
+                <li><a href="#">Our Story</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+
+    </header>
+
+    <!-- Product Page Main Section -->
+    <main class="product-page">
+        <div class="product-detail" data-product-id="product-3">
+            <!-- Product Image -->
+            <div class="product-image">
+            <img src="product-image-3.jpeg" alt="Grimm’s – Building Set Rainbow Lion">
+            </div>
+
+            <!-- Product Info -->
+            <div class="product-info">
+            <h1>Grimm’s – Building Set Rainbow Lion</h1>
+            <p class="price">$299.00</p>
+            <p class="stock">3 in stock</p>
+
+            <div class="quantity-cart">
+                <div class="quantity-selector">
+                    <button class="qty-btn" onclick="decreaseQty()">−</button>
+                    <input type="number" id="quantity" value="1" min="1">
+                    <button class="qty-btn" onclick="increaseQty()">+</button>
+                </div>
+                <button class="add-to-cart">ADD TO CART</button>
+            </div>
+
+            <p class="sku"><strong>SKU:</strong> 8719066007800</p>
+            <p class="category"><strong>Categories:</strong> <a href="#">educational</a>, <a href="#">pretend play</a>, <a href="#">toys</a>, <a href="#">wooden toys</a></p>
+            <p class="tags"><strong>Tags:</strong> <a href="#">Miffy</a>, <a href="#">Soft Toys</a></p>
+            </div>
+        </div>
+
+        <!-- Cart confirmation popup -->
+        <div id="cart-popup" class="popup hidden">
+            <p class="popup-message">Item added successfully.</p>
+            <div class="popup-buttons">
+                <a href="List-of-products-page.html" class="popup-btn yellow-btn">CONTINUE SHOPPING</a>
+                <a href="cart.html" class="popup-btn blue-btn">VIEW CART</a>
+            </div>
+        </div>
+
+        <!-- Related Products -->
+        <section class="related-products">
+            <h2>Related Products</h2>
+            <div class="product-grid">
+                <div class="product-card">
+                    <a href="#">
+                    <img src="related-1.jpeg" alt="Related Product 1">
+                    <p class="category">toys</p>
+                    <p class="product-name">Tote Bag Her Majesty The Queen</p>
+                    <p class="price">$25.99</p>
+                    </a>
+                    <button class="add-to-cart">ADD TO CART</button>
+                </div>
+                <div class="product-card">
+                    <a href="#">
+                    <img src="related-2.jpeg" alt="Related Product 2">
+                    <p class="category">toys</p>
+                    <p class="product-name">Paddywax – Ceramic Vessel Star Pattern Candle: Sapphire Waters 10oz</p>
+                    <p class="price">$29.95</p>
+                    </a>
+                    <button class="add-to-cart">ADD TO CART</button>
+                </div>
+                <div class="product-card">
+                    <a href="#">
+                    <img src="related-3.jpeg" alt="Related Product 3">
+                    <p class="category">toys</p>
+                    <p class="product-name">Scratch & Sniff Stickers – Assorted</p>
+                    <p class="price">$4.95</p>
+                    </a>
+                    <button class="add-to-cart">ADD TO CART</button>
+                </div>
+                <div class="product-card">
+                    <a href="#">
+                    <img src="related-4.png" alt="Related Product 4">
+                    <p class="category">toys</p>
+                    <p class="product-name">Playmobil – 1.2.3 Police Officer with Dog</p>
+                    <p class="price">$12.95</p>
+                    </a>
+                    <button class="add-to-cart">ADD TO CART</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer id="main-footer">
+        <div class="footer-container">
+
+            <!-- Logo Column -->
+            <div class="footer-column" id="footer-logo">
+                <img src="logo.png" alt="Poppyshop Logo">
+            </div>
+
+            <!-- Policy Links -->
+            <div class="footer-column">
+                <ul>
+                    <li><a href="#">Shipping and Returns</a></li>
+                    <li><a href="#">Terms and Conditions</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                </ul>
+            </div>
+
+            <!-- Account Links -->
+            <div class="footer-column">
+                <ul>
+                    <li><a href="#">Shop</a></li>
+                    <li><a href="#">My account</a></li>
+                    <li><a href="#">Cart</a></li>
+                    <li><a href="#">Checkout</a></li>
+                </ul>
+            </div>
+
+            <!-- Contact Info -->
+            <div class="footer-column">
+                <address>
+                    283 Lygon St, Carlton VIC 3053, Australia<br>
+                    +61 3 9347 6302
+                </address>
+            </div>
+
+        </div>
+
+        <!-- Back to Top Button -->
+        <div id="back-to-top">
+            <button onclick="window.scrollTo({ top: 0, behavior: 'smooth' })">↑</button>
+        </div>
+    </footer>
+
+    <!-- CSS -->
+    <style>
+        .product-page {
+            font-family: 'Nunito Sans', sans-serif;
+        }
+
+        .product-detail {
+            display: flex;
+            gap: 50px;
+            padding: 40px;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: flex-start;
+            background-color: #EFEFEF;
+        }
+
+        .product-image img {
+            width: 300px;
+            object-fit: contain;
+        }
+
+        .product-info h1 {
+            font-family: 'Nunito', sans-serif;
+            font-size: 24px;
+        }
+
+        .price {
+            color: #BF00FF;
+            font-size: 20px;
+            margin: 10px 0;
+        }
+
+        .stock {
+            margin-bottom: 20px;
+            color: grey;
+        }
+
+        .quantity-cart {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .quantity-selector {
+            display: flex;
+            align-items: center;
+            border: 1px solid #555;
+            width: fit-content;
+        }
+
+        .quantity-selector input[type="number"] {
+            width: 60px;
+            text-align: center;
+            border: none;
+            outline: none;
+            font-size: 16px;
+            height: 40px;
+        }
+
+        .qty-btn {
+            background-color: #00FFFF; /* bright cyan */
+            border: none;
+            width: 40px;
+            height: 40px;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        .qty-btn:focus {
+            outline: none;
+        }
+
+        .add-to-cart {
+            background-color: blue;
+            color: white;
+            font-family: 'Rounded Mplus 1c', sans-serif;
+            font-weight: bold;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        .related-products {
+            margin-top: 60px;
+            padding: 20px;
+        }
+
+        .related-products h2 {
+            font-family: 'Nunito', sans-serif;
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            justify-content: center;
+        }
+
+        .product-card {
+            text-align: center;
+            max-width: 240px;
+            margin: 0 auto;
+        }
+
+        .product-card img {
+            width: 260px;
+            height: 260px;
+        }
+
+        .product-card a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .product-card .product-name {
+            font-family: 'Nunito', sans-serif;
+            font-weight: 600;
+        }
+
+        .product-card .category {
+            font-style: italic;
+        }
+
+        .product-card .price {
+            color: #BF00FF;
+            font-weight: bold;
+        }
+
+        .product-card button {
+            margin-top: 10px;
+            background-color: blue;
+            color: white;
+            font-family: 'Rounded Mplus 1c', sans-serif;
+            font-weight: bold;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        /* Popup box */
+        .popup {
+            position: fixed;
+            top: 30%;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #00f0f0;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.3);
+            text-align: center;
+            z-index: 1000;
+        }
+
+        .popup-message {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            font-family: 'Nunito Sans', sans-serif;
+        }
+
+        .popup-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .popup-btn {
+            padding: 12px 18px;
+            font-weight: bold;
+            font-family: 'Rounded Mplus 1c', sans-serif;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            color: black;
+        }
+
+        .yellow-btn {
+            background-color: #ffe600;
+        }
+
+        .blue-btn {
+            background-color: blue;
+            color: white;
+        }
+
+
+        @media (max-width: 768px) {
+            .product-detail {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .product-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 24px;
+                padding: 0 5px;
+            }
+
+            .product-card {
+                max-width: 200px;
+                padding: 0 4px;
+            }
+
+            .product-image img {
+                width: 250px;
+            }
+
+            .product-card img {
+                width: 100%;
+                height: auto;
+                max-height: 180px;
+                object-fit: contain;
+            }
+
+            .product-info {
+                text-align: center;
+            }
+        }
+    </style>
+
+
+    <script>
+    function toggleMobileMenu() {
+        const menu = document.getElementById('mobile-nav');
+        menu.classList.toggle('open');
+    }
+    </script>
+</body>
+</html>

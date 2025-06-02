@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <title>Poppyshop</title>
     <link rel="stylesheet" href="Header-footer-styles.css">
-    <link rel="stylesheet" href="Homepage-styles.css">
+    <link rel="stylesheet" href="LOP-page-styles.css">
+    <script src="cart-popup.js"></script>
+    <script src="cart.js"></script>
 </head>
 <body>
 
@@ -55,18 +57,18 @@
                 <img src="close-icon.svg" alt="Close" onclick="toggleMobileMenu()">
             </div>
             <ul>
-                <li><a href="Homepage.html">Home</a></li>
+                <li><a href="#">Home</a></li>
                 <li>
-                    <a href="List-of-products-page.html">Shop</a>
+                    <a href="#">Shop</a>
                     <ul>
-                        <li><a href="List-of-products-page.html">New Arrivals</a></li>
+                        <li><a href="#">New Arrivals</a></li>
                         <li><a href="#">Ages</a></li>
                         <li><a href="#">Gift Occasions</a></li>
                     </ul>
                 </li>
-                <li><a href="List-of-products-page.html">Home & Decor</a></li>
-                <li><a href="List-of-products-page.html">Toys</a></li>
-                <li><a href="List-of-products-page.html">Games & Puzzles</a></li>
+                <li><a href="#">Home & Decor</a></li>
+                <li><a href="#">Toys</a></li>
+                <li><a href="#">Games & Puzzles</a></li>
                 <li><a href="#">Our Story</a></li>
                 <li><a href="#">Contact</a></li>
             </ul>
@@ -74,77 +76,74 @@
 
     </header>
 
-    <!-- Hero Section with Toys Image -->
-    <section id="hero-image">
-        <img src="hero-toys.png" alt="Vintage Toys Banner">
-    </section>
-
-    <!-- Welcome Section -->
-    <section id="welcome">
-        <h1>WELCOME TO POPPYSHOP</h1>
-        <p>
-            Established in 1965 – Poppyshop on Lygon Street, Carlton has long been a favourite for many.
-            With the core value of play base learning at its heart.
-        </p>
-        <div id="welcome-buttons">
-            <button id="more-about-us">MORE ABOUT US</button>
-            <a id="shop-now" href="List-of-products-page.html">SHOP NOW!</a>
-        </div>
-    </section>
-
-    <!-- Product Search -->
-    <section id="search">
-        <div class="search-bar">
-            <input type="text" placeholder="Product Search">
-            <button type="submit">
-                <img src="search-icon.png" alt="Search">
+    <!-- Product Listing Main Section -->
+    <main id="product-listing">
+        <!-- Top controls: Search + Filter -->
+        <div class="product-controls">
+            <div class="search-bar">
+                <input type="text" placeholder="Search">
+                <button type="submit">
+                    <img src="search-icon.png" alt="Search">
+                </button>
+            </div>
+            <button class="filter-button">
+                <img src="filter-icon.png" alt="Filter Icon">
+                <span>Filter</span>
             </button>
         </div>
-    </section>
 
-    <!-- Category Grid -->
-    <section id="categories">
-        <a class="category" href="List-of-products-page.html">
-            <img src="whats-new.jpg" alt="What's New?">
-            <p>What’s New?</p>
-        </a>
-        <a class="category" href="List-of-products-page.html">
-            <img src="wooden-toys.jpg" alt="Wooden Toys">
-            <p>Wooden Toys</p>
-        </a>
-        <a class="category" href="List-of-products-page.html">
-            <img src="pretend-play.jpg" alt="Pretend Play">
-            <p>Pretend Play</p>
-        </a>
-        <a class="category" href="List-of-products-page.html">
-            <img src="brands.jpg" alt="Brands">
-            <p>Brands</p>
-        </a>
-        <a class="category" href="List-of-products-page.html">
-            <img src="1st-birthday.jpg" alt="1st Birthday">
-            <p>1st Birthday</p>
-        </a>
-        <a class="category" href="#">
-            <img src="gift-voucher.jpg" alt="Gift Voucher">
-            <p>Gift Voucher</p>
-        </a>
-        <a class="category" href="#">
-            <img src="gift-ideas.jpg" alt="Gift Ideas">
-            <p>Gift Ideas</p>
-        </a>
-        <a class="category" href="#">
-            <img src="games-puzzles.jpg" alt="Games & Puzzles">
-            <p>Games & Puzzles</p>
-        </a>
-        <a class="category" href="#">
-            <img src="new-baby.jpg" alt="New Baby">
-            <p>New Baby</p>
-        </a>
-        <a class="category" href="#">
-            <img src="for-you.jpg" alt="For You">
-            <p>For You</p>
-        </a>
-    </section>
+        <!-- Product Grid -->
+        <div class="product-grid">
+            <div class="product-card" data-product-id="product-1">
+                <a href="Product-page-1.html" class="product-link">
+                    <img src="product-image-1.jpeg" alt="Miffy Teddy Pink 23cm">
+                    <p class="product-category"><em>toys</em></p>
+                    <p class="product-name">Miffy Teddy Pink 23cm</p>
+                    <p class="price">$39.95</p>
+                </a>
+                <button class="add-to-cart">ADD TO CART</button>
+            </div>
+            
+            <div class="product-card" data-product-id="product-2">
+                <a href="Product-page-2.html" class="product-link">
+                    <img src="product-image-2.jpeg" alt="Miffy Teddy Pink 23cm">
+                    <p class="product-category"><em>brainteasers, games&puzzles, toys</em></p>
+                    <p class="product-name">Nanoblock Pokémon – Pikachu</p>
+                    <p class="price">$17.99</p>
+                </a>
+                <button class="add-to-cart">ADD TO CART</button>
+            </div>
+
+            <div class="product-card" data-product-id="product-3">
+                <a href="Product-page-3.html" class="product-link">
+                    <img src="product-image-3.jpeg" alt="Miffy Teddy Pink 23cm">
+                    <p class="product-category"><em>educational, pretend play, toys, wooden toys</em></p>
+                    <p class="product-name">Grimm’s – Building Set Rainbow Lion</p>
+                    <p class="price">$299.00</p>
+                </a>
+                <button class="add-to-cart">ADD TO CART</button>
+            </div>
+
+            <div class="product-card" data-product-id="product-1">
+                <a href="Product-page-4.html" class="product-link">
+                    <img src="product-image-4.jpeg" alt="Miffy Teddy Pink 23cm">
+                    <p class="product-category"><em>educational, toys, wooden toys</em></p>
+                    <p class="product-name">Grapat – Together</p>
+                    <p class="price">$94.95</p>
+                </a>
+                <button class="add-to-cart">ADD TO CART</button>
+            </div>
+        </div>
+
+        <!-- Cart confirmation popup -->
+        <div id="cart-popup" class="popup hidden">
+            <p class="popup-message">Item added successfully.</p>
+            <div class="popup-buttons">
+                <button id="continue-shopping" class="popup-btn yellow-btn">CONTINUE SHOPPING</button>
+                <a href="cart.html" class="popup-btn blue-btn">VIEW CART</a>
+            </div>
+        </div>
+    </main>
 
     <!-- Footer Section -->
     <footer id="main-footer">
