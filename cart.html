@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Poppyshop</title>
+    <link rel="stylesheet" href="Header-footer-styles.css">
+    <link rel="stylesheet" href="cart-styles.css">
+    <script src="cart-popup.js"></script>
+    <script src="cart.js"></script>
+</head>
+<body>
+
+    <!-- Header / Navbar -->
+    <header>
+        <div class="shipping-banner">FREE SHIPPING OVER $200</div>
+
+        <div class="header-bar">
+            <div class="menu-icon">
+                <img src="menu-icon.png" alt="Menu" onclick="toggleMobileMenu()">
+            </div>
+
+            <div class="header-logo">
+                <div class="logo-oval">
+                    <a href="Homepage.html"><img src="logo.png" alt="Poppyshop Logo"></a>
+                </div>
+            </div>
+
+            <div class="header-actions">
+                <a class="header-icon" href="cart.html">
+                    <img src="cart-icon.png" alt="Cart Icon">
+                    <span>Cart</span>
+                </a>
+                <a class="header-icon" href="#">
+                    <img src="login-icon.png" alt="Login Icon">
+                    <span>Log in</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Main Navigation -->
+        <nav class="main-nav">
+            <ul>
+                <li><a href="Homepage.html">Home</a></li>
+                <li><a href="List-of-products-page.html">Shop</a></li>
+                <li><a href="List-of-products-page.html">Home & Decor</a></li>
+                <li><a href="List-of-products-page.html">Toys</a></li>
+                <li><a href="List-of-products-page.html">Games & Puzzles</a></li>
+                <li><a href="#">Our Story</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+
+
+        <!-- Mobile Navigation Menu -->
+        <nav class="mobile-nav" id="mobile-nav">
+            <div class="mobile-nav-header">
+                <img src="close-icon.svg" alt="Close" onclick="toggleMobileMenu()">
+            </div>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li>
+                    <a href="#">Shop</a>
+                    <ul>
+                        <li><a href="#">New Arrivals</a></li>
+                        <li><a href="#">Ages</a></li>
+                        <li><a href="#">Gift Occasions</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Home & Decor</a></li>
+                <li><a href="#">Toys</a></li>
+                <li><a href="#">Games & Puzzles</a></li>
+                <li><a href="#">Our Story</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+
+    </header>
+
+    <main>
+        <div class="cart-header">
+        <h1>YOUR CART</h1>
+        <button class="checkout-btn">CHECK OUT</button>
+        </div>
+
+        <!-- Cart Items -->
+        <div class="cart-item">
+            <img src="product-image-1.jpeg" alt="Miffy Teddy">
+            <div class="item-info">
+                <h2>Miffy Teddy Pink 23cm</h2>
+                <p class="price">Price: $39.95</p>
+                <label>Quantity</label>
+                <div class="quantity-selector">
+                    <button class="qty-btn" onclick="decreaseQty(this)">−</button>
+                    <input type="number" class="quantity" value="1" min="1">
+                    <button class="qty-btn" onclick="increaseQty(this)">+</button>
+                </div>
+            </div>
+            <div class="item-total">Total: $39.95</div>
+            <div class="remove-item">
+                <img src="delete-icon.png" alt="Remove item">
+            </div>
+        </div>
+
+        <div class="cart-item">
+            <img src="product-image-2.jpeg" alt="Pikachu">
+            <div class="item-info">
+                <h2>Nanoblock Pokémon – Pikachu</h2>
+                <p class="price">Price: $17.99</p>
+                <label>Quantity</label>
+                <div class="quantity-selector">
+                    <button class="qty-btn" onclick="decreaseQty(this)">−</button>
+                    <input type="number" class="quantity" value="1" min="1">
+                    <button class="qty-btn" onclick="increaseQty(this)">+</button>
+                </div>
+            </div>
+            <div class="item-total">Total: $17.99</div>
+            <div class="remove-item">
+                <img src="delete-icon.png" alt="Remove item">
+            </div>
+        </div>
+
+        <div class="cart-item">
+            <img src="product-image-3.jpeg" alt="Rainbow Lion">
+            <div class="item-info">
+                <h2>Grimm’s – Building Set Rainbow Lion</h2>
+                <p class="price">Price: $299.00</p>
+                <label>Quantity</label>
+                <div class="quantity-selector">
+                    <button class="qty-btn" onclick="decreaseQty(this)">−</button>
+                    <input type="number" class="quantity" value="1" min="1">
+                    <button class="qty-btn" onclick="increaseQty(this)">+</button>
+                </div>
+            </div>
+            <div class="item-total">Total: $299.00</div>
+            <div class="remove-item">
+                <img src="delete-icon.png" alt="Remove item">
+            </div>
+        </div>
+
+        <div class="cart-item">
+            <img src="product-image-4.jpeg" alt="Grapat">
+            <div class="item-info">
+                <h2>Grapat – Together</h2>
+                <p class="price">Price: $94.95</p>
+                <label>Quantity</label>
+                <div class="quantity-selector">
+                    <button class="qty-btn" onclick="decreaseQty(this)">−</button>
+                    <input type="number" class="quantity" value="1" min="1">
+                    <button class="qty-btn" onclick="increaseQty(this)">+</button>
+                </div>
+            </div>
+            <div class="item-total">Total: $94.95</div>
+            <div class="remove-item">
+                <img src="delete-icon.png" alt="Remove item">
+            </div>
+        </div>
+
+        <!-- Bottom Section -->
+        <div class="cart-bottom">
+        <!-- Cart Totals -->
+        <div class="cart-summary">
+            <h2>Cart totals</h2>
+            <div class="row">
+            <span>Subtotal</span>
+            <span class="subtotal">$57.94</span>
+            </div>
+            <div class="row">
+            <span>Shipping</span>
+            <span>
+                <label><input type="radio" name="shipping" value="flat"> Flat rate: $10.00</label>
+                <label><input type="radio" name="shipping" value="pickup" checked> Click and collect - In store pickup</label>
+            </span>
+            </div>
+            <div class="row">
+            <span>Total</span>
+            <span class="total">$57.94</span>
+            </div>
+        </div>
+
+        <!-- Buttons -->
+        <div class="btn-group">
+            <button class="btn yellow-btn">UPDATE CART</button>
+            <a href="List-of-products-page.html" class="btn purple-btn">RESUME SHOPPING</a>
+        </div>
+        </div>
+    </main>
+
+    <!-- Footer Section -->
+    <footer id="main-footer">
+        <div class="footer-container">
+
+            <!-- Logo Column -->
+            <div class="footer-column" id="footer-logo">
+                <img src="logo.png" alt="Poppyshop Logo">
+            </div>
+
+            <!-- Policy Links -->
+            <div class="footer-column">
+                <ul>
+                    <li><a href="#">Shipping and Returns</a></li>
+                    <li><a href="#">Terms and Conditions</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                </ul>
+            </div>
+
+            <!-- Account Links -->
+            <div class="footer-column">
+                <ul>
+                    <li><a href="#">Shop</a></li>
+                    <li><a href="#">My account</a></li>
+                    <li><a href="#">Cart</a></li>
+                    <li><a href="#">Checkout</a></li>
+                </ul>
+            </div>
+
+            <!-- Contact Info -->
+            <div class="footer-column">
+                <address>
+                    283 Lygon St, Carlton VIC 3053, Australia<br>
+                    +61 3 9347 6302
+                </address>
+            </div>
+
+        </div>
+
+        <!-- Back to Top Button -->
+        <div id="back-to-top">
+            <button onclick="window.scrollTo({ top: 0, behavior: 'smooth' })">↑</button>
+        </div>
+    </footer>
+
+    
+    <script>
+    function toggleMobileMenu() {
+        const menu = document.getElementById('mobile-nav');
+        menu.classList.toggle('open');
+    }
+    </script>
+</body>
+</html>

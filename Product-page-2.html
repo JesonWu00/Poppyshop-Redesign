@@ -26,7 +26,7 @@
             </div>
 
             <div class="header-actions">
-                <a class="header-icon" href="#">
+                <a class="header-icon" href="cart.html">
                     <img src="cart-icon.png" alt="Cart Icon">
                     <span>Cart</span>
                 </a>
@@ -91,9 +91,9 @@
 
             <div class="quantity-cart">
                 <div class="quantity-selector">
-                    <button class="qty-btn" onclick="decreaseQty()">−</button>
-                    <input type="number" id="quantity" value="1" min="1">
-                    <button class="qty-btn" onclick="increaseQty()">+</button>
+                    <button class="qty-btn" onclick="decreaseQty(this)">−</button>
+                    <input type="number" class="quantity" value="1" min="1">
+                    <button class="qty-btn" onclick="increaseQty(this)">+</button>
                 </div>
                 <button class="add-to-cart">ADD TO CART</button>
             </div>

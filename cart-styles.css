@@ -1,0 +1,261 @@
+/* Load all required Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Mada&family=Merge+One&family=Nunito&family=Nunito+Sans&family=Noto+Sans&family=Playpen+Sans&family=Poppins:wght@400;600&family=Rounded+Mplus+1c:wght@700&display=swap');
+
+body {
+    font-family: 'Nunito Sans', sans-serif;
+    margin: 0;
+    background: #f0f0f0;
+}
+
+main {
+    padding: 40px 20px;
+}
+
+.cart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    max-width: 1000px;
+    margin: 0 auto 30px auto;
+}
+
+.cart-header h1 {
+    font-family: 'Nunito', sans-serif;
+    font-size: 28px;
+    margin: 0;
+}
+
+.checkout-btn {
+    background-color: blue;
+    color: white;
+    font-family: 'Rounded Mplus 1c', sans-serif;
+    font-weight: bold;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border: 1px solid black;
+    padding: 20px;
+    margin: 0 auto 20px auto;
+    border-radius: 10px;
+    flex-wrap: wrap;
+    max-width: 1000px;
+    justify-content: space-between;
+}
+
+.cart-item img {
+    width: 120px;
+    object-fit: contain;
+}
+
+.item-info {
+    flex: 1;
+    margin: 0 20px;
+}
+
+.item-info h2 {
+    font-family: 'Nunito', sans-serif;
+    font-size: 20px;
+    margin: 0;
+}
+
+.item-info .price {
+    color: #BF00FF;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.quantity-selector {
+    display: flex;
+    align-items: center;
+    border: 1px solid #555;
+    width: fit-content;
+}
+
+.quantity-selector input[type="number"] {
+    width: 60px;
+    text-align: center;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    height: 40px;
+}
+
+.qty-btn {
+    background-color: #00FFFF;
+    width: 40px;
+    height: 40px;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.item-total {
+    color: #BF00FF;
+    font-weight: bold;
+    font-family: 'Nunito', sans-serif;
+    min-width: 100px;
+    text-align: right;
+}
+
+.remove-item {
+    font-size: 24px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.remove-item img {
+  width: 28px;
+  height: 28px;
+  cursor: pointer;
+}
+
+.remove-item img:hover {
+  transform: scale(1.1);
+}
+
+.cart-bottom {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 1000px;
+    margin: 40px auto 0 auto;
+    gap: 30px;
+}
+
+.cart-summary {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    flex: 1 1 300px;
+    min-width: 280px;
+    max-width: 340px;
+}
+
+.cart-summary h2 {
+    font-family: 'Nunito', sans-serif;
+    margin-bottom: 20px;
+}
+
+.cart-summary .row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 12px;
+}
+
+.cart-summary label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.cart-summary input[type="radio"] {
+    margin-right: 6px;
+}
+
+.cart-summary .subtotal,
+.cart-summary .total {
+    font-weight: bold;
+}
+
+.cart-summary .total {
+    font-size: 18px;
+}
+
+.btn-group {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    gap: 10px;
+    flex-wrap: wrap;
+    flex: 1;
+    min-width: 240px;
+}
+
+.btn {
+    padding: 10px 20px;
+    font-family: 'Rounded Mplus 1c', sans-serif;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+}
+
+.yellow-btn {
+    background-color: #FFE600;
+}
+
+.purple-btn {
+    background-color: #BF00FF;
+    color: white;
+    font-size: 12px;
+    text-decoration: none;
+}
+
+@media (max-width: 700px) {
+  .cart-item {
+    display: grid;
+    grid-template-areas:
+      "image info"
+      "total delete";
+    grid-template-columns: auto 1fr;
+    gap: 10px;
+    align-items: center;
+    border-radius: 10px;
+    padding: 15px;
+    margin: 15px auto;
+    max-width: 500px;
+    background-color: white;
+  }
+
+  .cart-item img {
+    grid-area: image;
+    width: 100px;
+    height: auto;
+  }
+
+  .remove-item img {
+    width: 28px;
+    height: 28px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+  .btn-group {
+    display: flex;
+    flex-direction: row; /* ensure side-by-side */
+    justify-content: center; /* center on mobile */
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+  }
+
+  .btn {
+    flex: 1 1 140px; /* makes buttons wrap if too tight */
+    text-align: center;
+  }
+
+  .item-info {
+    grid-area: info;
+  }
+
+  .item-total {
+    grid-area: total;
+    color: #BF00FF;
+    font-weight: bold;
+    justify-self: start;
+    margin-top: 10px;
+  }
+
+  .remove-item {
+    grid-area: delete;
+    font-size: 24px;
+    justify-self: end;
+    cursor: pointer;
+  }
+}
