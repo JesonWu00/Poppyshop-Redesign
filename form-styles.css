@@ -1,0 +1,111 @@
+/* Load all required Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Mada&family=Merge+One&family=Nunito&family=Nunito+Sans&family=Noto+Sans&family=Playpen+Sans&family=Poppins:wght@400;600&family=Rounded+Mplus+1c:wght@700&display=swap');
+
+body {
+  font-family: 'Nunito', sans-serif;
+  margin: 0;
+}
+
+.checkout-page {
+  padding: 40px 20px;
+}
+
+.checkout-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px;
+  max-width: 1100px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+}
+
+.billing-form {
+  flex: 2;
+  min-width: 300px;
+}
+
+.billing-form h2 {
+  font-size: 20px;
+  margin-bottom: 20px;
+  font-family: 'Nunito', sans-serif;
+}
+
+form input {
+  width: 100%;
+  margin-bottom: 12px;
+  padding: 10px;
+  font-size: 15px;
+  border: 1px solid #333;
+  background-color: #f0f0f0;
+  box-sizing: border-box;
+}
+
+form .two-col {
+  display: flex;
+  gap: 10px;
+}
+
+form .two-col input {
+  flex: 1;
+}
+
+.user-info {
+    max-width: 220px;
+}
+
+/* Ship to different address box */
+.shipping-notes {
+  flex: 1;
+  min-width: 280px;
+}
+
+.shipping-notes label {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+.shipping-notes textarea {
+  width: 100%;
+  min-height: 120px;
+  font-family: 'Nunito', sans-serif;
+  background-color: #e8e8e8;
+  border: 1px solid #888;
+  padding: 10px;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+.confirm-btn {
+  display: flex;
+  justify-content: flex-start;
+  max-width: 1100px;
+  margin: 30px auto 0 auto;
+}
+
+.confirm-purchase {
+  background-color: blue;
+  color: white;
+  font-family: 'Rounded Mplus 1c', sans-serif;
+  font-weight: bold;
+  border: none;
+  padding: 12px 24px;
+  cursor: pointer;
+}
+
+/* === Responsive for Mobile View === */
+@media (max-width: 700px) {
+  .checkout-container {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .billing-form form .two-col {
+    flex-direction: column;
+  }
+
+  .confirm-btn {
+    justify-content: center;
+  }
+}

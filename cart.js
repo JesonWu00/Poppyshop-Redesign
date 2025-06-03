@@ -155,19 +155,35 @@ document.addEventListener('DOMContentLoaded', () => {
     updateShippingCost();
 });
 
-// Quantity buttons for single product page
-function increaseQty(button) {
-    const container = button.closest('.quantity-selector');
-    const input = container.querySelector('.quantity');
-    input.value = parseInt(input.value, 10) + 1;
-}
+document.addEventListener('DOMContentLoaded', () => {
+    const cartContainer = document.querySelector('.cart-items-container');
+    const cartEmptyText = document.querySelector('.cart-empty-text');
+    const subtotalEl = document.querySelector('.subtotal');
+    const totalEl = document.querySelector('.total');
 
-function decreaseQty(button) {
-    const container = button.closest('.quantity-selector');
-    const input = container.querySelector('.quantity');
-    const current = parseInt(input.value, 10);
-    if (current > 1) input.value = current - 1;
-}
+    function checkEmptyCart() {
+        const isEmpty = Object.keys(cart).length === 0;
+
+        if (isEmpty) {
+            // Hide item containers and cart summary
+            document.querySelectorAll('.cart-item, .cart-summary, .btn-group').forEach(el => el.style.display = 'none');
+
+            // Show empty message section
+            if (cartEmptyText) cartEmptyText.style.display = 'block';
+
+            // Handle <a> checkout button
+            const checkoutBtn = document.querySelector('.checkout-btn');
+            if (checkoutBtn) {
+                checkoutBtn.classList.add('disabled');
+                checkoutBtn.style.pointerEvents = 'none';
+                checkoutBtn.style.opacity = '0.5';
+                checkoutBtn.style.cursor = 'not-allowed';
+            }
+        }
+    }
+
+    checkEmptyCart(); // Run on load
+});
 
 function updateCartItem(name, price, item) {
     const qty = cart[name].quantity;
@@ -179,14 +195,32 @@ function updateCartItem(name, price, item) {
 
 function recalculateTotals() {
     let subtotal = 0;
+
     document.querySelectorAll('.cart-item').forEach(item => {
-        const totalText = item.querySelector('.item-total')?.innerText || '';
-        const price = parseFloat(totalText.replace('Total: $', ''));
-        if (!isNaN(price)) subtotal += price;
+        const name = item.querySelector('h2')?.innerText.trim();
+
+        if (!name || !cart[name]) {
+            return; // skip items not in cart
+        }
+
+        const quantity = cart[name].quantity;
+        const price = cart[name].price;
+        const itemTotal = price * quantity;
+
+        // Update item's total display
+        const totalDisplay = item.querySelector('.item-total');
+        if (totalDisplay) {
+            totalDisplay.innerText = 'Total: $' + itemTotal.toFixed(2);
+        }
+
+        subtotal += itemTotal;
     });
+
     document.querySelector('.subtotal').innerText = '$' + subtotal.toFixed(2);
+    localStorage.setItem('cart_subtotal', subtotal.toFixed(2));
     updateShippingCost();
 }
+
 
 function updateShippingCost() {
     const subtotal = parseFloat(document.querySelector('.subtotal').innerText.replace('$', '')) || 0;
@@ -196,4 +230,5 @@ function updateShippingCost() {
         total += 10;
     }
     document.querySelector('.total').innerText = '$' + total.toFixed(2);
+    localStorage.setItem('cart_total', total.toFixed(2));
 }

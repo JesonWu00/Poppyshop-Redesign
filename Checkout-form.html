@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Poppyshop</title>
+    <link rel="stylesheet" href="Header-footer-styles.css">
+    <link rel="stylesheet" href="form-styles.css">
+</head>
+<body>
+
+    <!-- Header / Navbar -->
+    <header>
+        <div class="shipping-banner">FREE SHIPPING OVER $200</div>
+
+        <div class="header-bar">
+            <div class="menu-icon">
+                <img src="menu-icon.png" alt="Menu" onclick="toggleMobileMenu()">
+            </div>
+
+            <div class="header-logo">
+                <div class="logo-oval">
+                    <a href="Homepage.html"><img src="logo.png" alt="Poppyshop Logo"></a>
+                </div>
+            </div>
+
+            <div class="header-actions">
+                <a class="header-icon" href="cart.html">
+                    <img src="cart-icon.png" alt="Cart Icon">
+                    <span>Cart</span>
+                </a>
+                <a class="header-icon" href="#">
+                    <img src="login-icon.png" alt="Login Icon">
+                    <span>Log in</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Main Navigation -->
+        <nav class="main-nav">
+            <ul>
+                <li><a href="Homepage.html">Home</a></li>
+                <li><a href="List-of-products-page.html">Shop</a></li>
+                <li><a href="List-of-products-page.html">Home & Decor</a></li>
+                <li><a href="List-of-products-page.html">Toys</a></li>
+                <li><a href="List-of-products-page.html">Games & Puzzles</a></li>
+                <li><a href="#">Our Story</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+
+
+        <!-- Mobile Navigation Menu -->
+        <nav class="mobile-nav" id="mobile-nav">
+            <div class="mobile-nav-header">
+                <img src="close-icon.svg" alt="Close" onclick="toggleMobileMenu()">
+            </div>
+            <ul>
+                <li><a href="Homepage.html">Home</a></li>
+                <li>
+                    <a href="List-of-products-page.html">Shop</a>
+                    <ul>
+                        <li><a href="List-of-products-page.html">New Arrivals</a></li>
+                        <li><a href="#">Ages</a></li>
+                        <li><a href="#">Gift Occasions</a></li>
+                    </ul>
+                </li>
+                <li><a href="List-of-products-page.html">Home & Decor</a></li>
+                <li><a href="List-of-products-page.html">Toys</a></li>
+                <li><a href="List-of-products-page.html">Games & Puzzles</a></li>
+                <li><a href="#">Our Story</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+
+    </header>
+
+    <main class="checkout-page">
+        <section class="checkout-container">
+            <!-- Billing form -->
+            <div class="billing-form">
+                <h2>Billing Details</h2>
+                <form>
+                    <div class="two-col">
+                        <input type="text" placeholder="First Name">
+                        <input type="text" placeholder="Last Name">
+                    </div>
+                    <input type="text" placeholder="Company / School name">
+                    <input type="text" placeholder="Country">
+                    <input type="text" placeholder="House number and street">
+                    <input type="text" placeholder="Apartment, suite, unit (optional)">
+                    <input type="text" placeholder="Town / City">
+                    <input type="text" placeholder="State">
+                    <input type="text" placeholder="Postcode">
+                    <input type="text" placeholder="Phone number">
+                    <input type="email" placeholder="Email address">
+                    <div class="user-info">
+                        <input type="text" placeholder="Username">
+                        <input type="password" placeholder="Password">
+                    </div>
+                </form>
+            </div>
+
+            <!-- Ship to a different address -->
+            <div class="shipping-notes">
+                <label><input type="checkbox"> Ship to a different address?</label>
+                <textarea placeholder="Notes about your order, e.g. special notes for delivery."></textarea>
+            </div>
+        </section>
+
+        <div class="confirm-btn">
+            <button class="confirm-purchase">CONFIRM PURCHASE</button>
+        </div>
+    </main>
+
+    <!-- Footer Section -->
+    <footer id="main-footer">
+        <div class="footer-container">
+
+            <!-- Logo Column -->
+            <div class="footer-column" id="footer-logo">
+                <img src="logo.png" alt="Poppyshop Logo">
+            </div>
+
+            <!-- Policy Links -->
+            <div class="footer-column">
+                <ul>
+                    <li><a href="#">Shipping and Returns</a></li>
+                    <li><a href="#">Terms and Conditions</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                </ul>
+            </div>
+
+            <!-- Account Links -->
+            <div class="footer-column">
+                <ul>
+                    <li><a href="#">Shop</a></li>
+                    <li><a href="#">My account</a></li>
+                    <li><a href="#">Cart</a></li>
+                    <li><a href="#">Checkout</a></li>
+                </ul>
+            </div>
+
+            <!-- Contact Info -->
+            <div class="footer-column">
+                <address>
+                    283 Lygon St, Carlton VIC 3053, Australia<br>
+                    +61 3 9347 6302
+                </address>
+            </div>
+
+        </div>
+
+        <!-- Back to Top Button -->
+        <div id="back-to-top">
+            <button onclick="window.scrollTo({ top: 0, behavior: 'smooth' })">↑</button>
+        </div>
+    </footer>
+
+    <script>
+    function toggleMobileMenu() {
+        const menu = document.getElementById('mobile-nav');
+        menu.classList.toggle('open');
+    }
+    </script>
+</body>
+</html>

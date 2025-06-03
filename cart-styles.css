@@ -31,7 +31,9 @@ main {
     color: white;
     font-family: 'Rounded Mplus 1c', sans-serif;
     font-weight: bold;
+    font-size: 15px;
     border: none;
+    text-decoration: none;
     padding: 10px 20px;
     cursor: pointer;
     margin-top: 10px;
@@ -194,6 +196,24 @@ main {
     background-color: #BF00FF;
     color: white;
     font-size: 12px;
+    text-decoration: none;
+}
+
+.cart-empty-text {
+    display: none;
+    text-align: center;
+    margin-top: 40px;
+}
+
+.cart-empty-text p {
+    font-size: 18px;
+    color: #3a0000;
+    font-family: 'Nunito', sans-serif;
+}
+
+.cart-empty-text .btn {
+    margin-top: 10px;
+    color: black;
     text-decoration: none;
 }
 
