@@ -157,8 +157,8 @@ main {
     margin-bottom: 5px;
 }
 
-.cart-summary input[type="radio"] {
-    margin-right: 6px;
+#radio-select {
+    padding-left: 30px;
 }
 
 .cart-summary .subtotal,
