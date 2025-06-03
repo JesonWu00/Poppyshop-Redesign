@@ -1,0 +1,132 @@
+#confirmation-page {
+  padding: 40px 20px;
+  font-family: 'Nunito Sans', sans-serif;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  justify-content: center;
+}
+
+.payment-section {
+  background-color: #ddd;
+  padding: 20px;
+  flex: 1 1 400px;
+  max-width: 550px;
+}
+
+.payment-section h2 {
+  font-family: 'Nunito', sans-serif;
+  color: #3e1e1e;
+  margin-bottom: 20px;
+}
+
+.payment-section form label {
+  display: block;
+  margin-bottom: 15px;
+  font-weight: 500;
+}
+
+.payment-section input {
+  width: 100%;
+  padding: 10px;
+  font-size: 15px;
+  border: 1px solid #333;
+  margin-top: 5px;
+}
+
+.order-summary {
+  flex: 1 1 350px;
+  max-width: 500px;
+}
+
+.order-summary h2 {
+  font-family: 'Nunito', sans-serif;
+  color: #3e1e1e;
+  margin-bottom: 10px;
+}
+
+.order-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+.order-table th,
+.order-table td {
+  text-align: left;
+  padding: 8px 12px;
+  border-bottom: 1px solid #ccc;
+}
+
+.order-table td.final-total {
+  text-align: right;
+}
+
+.button-group {
+  display: flex;
+  gap: 20px;
+  justify-content: space-between;
+}
+
+.btn {
+  padding: 10px 20px;
+  font-family: 'Rounded Mplus 1c', sans-serif;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+}
+
+.btn.yellow {
+  background-color: #FFE600;
+}
+
+.btn.blue {
+  background-color: blue;
+  color: white;
+}
+
+/* Base style for required inputs */
+.required-field {
+    border: 1px solid #999;
+    padding: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+    font-size: 14px;
+    font-family: inherit;
+}
+
+/* Error state */
+.required-field.invalid {
+    border: 2px solid red;
+    background-color: #ffe6e6;
+}
+
+/* Error message text */
+.required-field + .error-message {
+    color: red;
+    font-size: 12px;
+    margin: -8px 0 10px 0;
+    display: block;
+}
+
+/* Responsive mobile layout */
+@media (max-width: 700px) {
+  #confirmation-page {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .button-group {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .order-table td,
+  .order-table th {
+    padding: 10px 8px;
+  }
+}

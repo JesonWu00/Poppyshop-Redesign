@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <title>Poppyshop</title>
     <link rel="stylesheet" href="Header-footer-styles.css">
-    <link rel="stylesheet" href="form-styles.css">
+    <link rel="stylesheet" href="confirmation-styles.css">
+    <script src="confirmation.js"></script>
     <script src="input-validation.js"></script>
 </head>
 <body>
@@ -75,44 +76,64 @@
 
     </header>
 
-    <main class="checkout-page">
-        <section class="checkout-container">
-            <!-- Billing form -->
-            <div class="billing-form">
-                <h2>Billing Details</h2>
-                <form>
-                    <div class="two-col">
-                        <input type="text" name="firstName" class="required-field" placeholder="First Name">
-                        <input type="text" name="lastName" class="required-field" placeholder="Last Name">
-                    </div>
-
-                    <input type="text" name="company" class="required-field" placeholder="Company / School name">
-                    <input type="text" name="country" class="required-field" placeholder="Country">
-                    <input type="text" name="street" class="required-field" placeholder="House number and street">
-                    <input type="text" name="apartment" placeholder="Apartment, suite, unit (optional)">
-                    <input type="text" name="city" class="required-field" placeholder="Town / City">
-                    <input type="text" name="state" class="required-field" placeholder="State">
-                    <input type="text" name="postcode" class="required-field" placeholder="Postcode">
-                    <input type="text" name="phone" class="required-field" placeholder="Phone number">
-                    <input type="email" name="email" class="required-field" placeholder="Email address">
-
-                    <div class="user-info">
-                        <input type="text" name="username" class="required-field" placeholder="Username">
-                        <input type="password" name="password" class="required-field" placeholder="Password">
-                    </div>
-                </form>
-            </div>
-
-            <!-- Ship to a different address -->
-            <div class="shipping-notes">
-                <label><input type="checkbox"> Ship to a different address?</label>
-                <textarea placeholder="Notes about your order, e.g. special notes for delivery."></textarea>
-            </div>
+    <main id="confirmation-page">
+        <section class="payment-section">
+            <h2>Secure Credit Card Payment</h2>
+            <form>
+                <label>
+                    Name on credit card *
+                    <input type="text" name="cardName" class="required-field" placeholder="Name on credit card">
+                </label>
+                <label>
+                    Card number *
+                    <input type="text" name="cardNumber" class="required-field" placeholder="**** **** **** ****">
+                </label>
+                <label>
+                    Expiry *
+                    <input type="text" name="expiry" class="required-field" placeholder="MM/YY">
+                </label>
+                <label>
+                    Card code *
+                    <input type="text" name="cvc" class="required-field" placeholder="CVC">
+                </label>
+            </form>
         </section>
 
-        <div class="confirm-btn">
-            <a href="Checkout-confirmation.html" id="confirm-btn">CONFIRM PURCHASE</a>
-        </div>
+        <section class="order-summary">
+            <h2>Your order</h2>
+            <table class="order-table">
+            <thead>
+                <tr>
+                <th>Product</th>
+                <th>Subtotal</th>
+                </tr>
+            </thead>
+            <tbody id="order-items">
+            <!-- Rows will be injected by JavaScript -->
+            </tbody>
+            <tfoot>
+            <tr>
+                <td colspan="2"><strong>Shipping</strong></td>
+            </tr>
+            <tr>
+                <td colspan="2" class="shipping-options">
+                <label><input type="radio" name="shipping" value="free"> Free shipping</label><br>
+                <label><input type="radio" name="shipping" value="flat"> Flat rate: $10.00</label><br>
+                <label><input type="radio" name="shipping" value="pickup" checked> Click and collect - In store pickup</label>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>Total</strong></td>
+                <td class="final-total" style="color: blue; font-weight: bold;">$0.00</td>
+            </tr>
+            </tfoot>
+            </table>
+
+            <div class="button-group">
+            <a href="Checkout-form.html" class="btn yellow">GO BACK</a>
+            <button class="btn blue" id="pay-now-btn">PAY NOW</button>
+            </div>
+        </section>
     </main>
 
     <!-- Footer Section -->

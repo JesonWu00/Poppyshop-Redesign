@@ -54,6 +54,30 @@ form .two-col input {
     max-width: 220px;
 }
 
+
+/* Base style for required inputs */
+.required-field {
+    padding: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+}
+
+/* Error state */
+.required-field.invalid {
+    border: 2px solid red;
+    background-color: #ffe6e6;
+}
+
+/* Error message text */
+.required-field + .error-message {
+    color: red;
+    font-size: 12px;
+    margin: -8px 0 10px 0;
+    display: block;
+}
+
+
 /* Ship to different address box */
 .shipping-notes {
   flex: 1;
@@ -84,15 +108,18 @@ form .two-col input {
   margin: 30px auto 0 auto;
 }
 
-.confirm-purchase {
+#confirm-btn {
   background-color: blue;
   color: white;
   font-family: 'Rounded Mplus 1c', sans-serif;
   font-weight: bold;
+  font-size: 15px;
+  text-decoration: None;
   border: none;
   padding: 12px 24px;
   cursor: pointer;
 }
+
 
 /* === Responsive for Mobile View === */
 @media (max-width: 700px) {
@@ -101,8 +128,13 @@ form .two-col input {
     gap: 20px;
   }
 
-  .billing-form form .two-col {
-    flex-direction: column;
+  form .two-col {
+    display: flex;
+    gap: 10px;
+  }
+
+  form .two-col input {
+    flex: 1;
   }
 
   .confirm-btn {
