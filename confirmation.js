@@ -1,11 +1,11 @@
 document.addEventListener('DOMContentLoaded', () => {
   const cart = JSON.parse(localStorage.getItem('cart')) || {};
-  const totalFromStorage = parseFloat(localStorage.getItem('cart_total')) || 0;
   const tbody = document.getElementById('order-items');
   const finalTotalEl = document.querySelector('.final-total');
 
   let subtotal = 0;
 
+  // Display each product row and compute subtotal
   for (const [name, data] of Object.entries(cart)) {
     const itemTotal = (data.price * data.quantity).toFixed(2);
     subtotal += parseFloat(itemTotal);
@@ -21,15 +21,36 @@ document.addEventListener('DOMContentLoaded', () => {
     tbody.appendChild(row);
   }
 
-  finalTotalEl.innerText = '$' + subtotal.toFixed(2);
-  localStorage.setItem('confirmation_subtotal', subtotal.toFixed(2)); // optional
+  localStorage.setItem('confirmation_subtotal', subtotal.toFixed(2));
 
-  // Handle shipping change
+  function updateShippingTotal() {
+    let finalTotal = subtotal;
+    const selected = document.querySelector('input[name="shipping"]:checked');
+    if (selected && selected.id === 'ship-flat') {
+      finalTotal += 10;
+    }
+    finalTotalEl.textContent = '$' + finalTotal.toFixed(2);
+  }
+
+  // Compute on load
+  updateShippingTotal();
+
+  // Also recompute whenever radio is changed
   document.querySelectorAll('input[name="shipping"]').forEach(radio => {
-    radio.addEventListener('change', () => {
+    radio.addEventListener('change', (e) => {
       let finalTotal = subtotal;
-      if (radio.value === 'flat') finalTotal += 10;
-      finalTotalEl.innerText = '$' + finalTotal.toFixed(2);
+      if (e.target.value === 'flat') {
+        finalTotal += 10;
+      }
+      finalTotalEl.textContent = '$' + finalTotal.toFixed(2);
     });
   });
+
+  // Add listeners
+  document.querySelectorAll('input[name="shipping"]').forEach(radio => {
+    radio.addEventListener('change', updateShippingTotal);
+  });
+
+  // Run on load to reflect initial selection
+  updateShippingTotal();
 });

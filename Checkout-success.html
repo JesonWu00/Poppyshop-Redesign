@@ -2,11 +2,48 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Poppyshop</title>
+    <title>Payment Success</title>
     <link rel="stylesheet" href="Header-footer-styles.css">
-    <link rel="stylesheet" href="confirmation-styles.css">
-    <script src="confirmation.js"></script>
-    <script src="input-validation.js"></script>
+    <style>
+        body {
+            font-family: 'Nunito', sans-serif;
+            margin: 0;
+            padding: 0;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        .success-message {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 30px;
+        }
+
+        .success-message h1 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .success-message p {
+            font-size: 1.3rem;
+            line-height: 1.6;
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Clear all cart-related data
+            localStorage.removeItem('cart');
+            localStorage.removeItem('cart_subtotal');
+            localStorage.removeItem('cart_total');
+            localStorage.removeItem('confirmation_subtotal');
+
+            // Also clear user form input data
+            localStorage.removeItem('checkoutFormData');
+            localStorage.removeItem('checkoutPaymentData');
+        });
+    </script>
 </head>
 <body>
 
@@ -76,63 +113,14 @@
 
     </header>
 
-    <main id="confirmation-page">
-        <section class="payment-section">
-            <h2>Secure Credit Card Payment</h2>
-            <form>
-                <label>
-                    Name on credit card *
-                    <input type="text" name="cardName" class="required-field" placeholder="Name on credit card">
-                </label>
-                <label>
-                    Card number *
-                    <input type="text" name="cardNumber" class="required-field" placeholder="**** **** **** ****">
-                </label>
-                <label>
-                    Expiry *
-                    <input type="text" name="expiry" class="required-field" placeholder="MM/YY">
-                </label>
-                <label>
-                    Card code *
-                    <input type="text" name="cvc" class="required-field" placeholder="CVC">
-                </label>
-            </form>
-        </section>
-
-        <section class="order-summary">
-            <h2>Your order</h2>
-            <table class="order-table">
-            <thead>
-                <tr>
-                <th>Product</th>
-                <th>Subtotal</th>
-                </tr>
-            </thead>
-            <tbody id="order-items">
-            <!-- Rows will be injected by JavaScript -->
-            </tbody>
-            <tfoot>
-            <tr>
-                <td colspan="2"><strong>Shipping</strong></td>
-            </tr>
-            <tr>
-                <td colspan="2" class="shipping-options">
-                <label><input type="radio" name="shipping" value="flat" id="ship-flat"> Flat rate: $10.00</label><br>
-                <label><input type="radio" name="shipping" value="pickup" id="ship-pickup" checked> Click and collect - In store pickup</label>
-                </td>
-            </tr>
-            <tr>
-                <td><strong>Total</strong></td>
-                <td class="final-total" style="color: blue; font-weight: bold;">$0.00</td>
-            </tr>
-            </tfoot>
-            </table>
-
-            <div class="button-group">
-            <a href="Checkout-form.html" class="btn yellow">GO BACK</a>
-            <button class="btn blue" id="pay-now-btn">PAY NOW</button>
-            </div>
-        </section>
+    <main>
+        <div class="success-message">
+            <h1>Payment successful!</h1>
+            <p>
+            We have sent you a receipt via email, please come to collect your order
+            immediately before we cancel your order in 5 minutes, without refunds.
+            </p>
+        </div>
     </main>
 
     <!-- Footer Section -->
