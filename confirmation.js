@@ -23,6 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   localStorage.setItem('confirmation_subtotal', subtotal.toFixed(2));
 
+  // Update total price based on selected shipping method
   function updateShippingTotal() {
     let finalTotal = subtotal;
     const selected = document.querySelector('input[name="shipping"]:checked');
@@ -32,10 +33,8 @@ document.addEventListener('DOMContentLoaded', () => {
     finalTotalEl.textContent = '$' + finalTotal.toFixed(2);
   }
 
-  // Compute on load
+  // Initialize total and re-compute on shipping change
   updateShippingTotal();
-
-  // Also recompute whenever radio is changed
   document.querySelectorAll('input[name="shipping"]').forEach(radio => {
     radio.addEventListener('change', (e) => {
       let finalTotal = subtotal;
@@ -46,11 +45,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Add listeners
   document.querySelectorAll('input[name="shipping"]').forEach(radio => {
     radio.addEventListener('change', updateShippingTotal);
   });
-
-  // Run on load to reflect initial selection
+  
   updateShippingTotal();
 });

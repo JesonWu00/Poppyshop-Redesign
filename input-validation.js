@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- UTILITY FUNCTIONS ---
 
+    // Show red error message above invalid input
     function showError(input, message) {
         input.classList.add('invalid');
         const nextSibling = input.nextElementSibling;
@@ -19,6 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
         input.insertAdjacentElement('afterend', error);
     }
 
+    // Clear error message if input is valid
     function clearError(input) {
         input.classList.remove('invalid');
         const nextSibling = input.nextElementSibling;
@@ -27,6 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    // Validate all required fields on the current page
     function validateRequiredInputs() {
         let isValid = true;
         const requiredInputs = document.querySelectorAll('.required-field');
@@ -46,6 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- STORAGE FUNCTIONS ---
 
+    // Save current page inputs to localStorage
     function storeInputsForPage(storageKey) {
         const inputs = document.querySelectorAll('input');
         const data = {};
@@ -57,6 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
         localStorage.setItem(storageKey, JSON.stringify(data));
     }
 
+    // Load and prefill inputs from localStorage
     function loadInputsForPage(storageKey) {
         const saved = localStorage.getItem(storageKey);
         if (!saved) return;
@@ -69,6 +74,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // Enable real-time saving of form input values
     function attachAutoSave(storageKey) {
         const inputs = document.querySelectorAll('input');
         inputs.forEach(input => {
@@ -78,7 +84,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- PAGE-SPECIFIC INIT ---
+    // --- PAGE-SPECIFIC BEHAVIOUR ---
 
     if (isFormPage) {
         loadInputsForPage('checkoutFormData');

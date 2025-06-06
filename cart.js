@@ -6,7 +6,7 @@ function saveCart() {
     localStorage.setItem('cart', JSON.stringify(cart));
 }
 
-// Add product to cart
+// Add product to cart with specified quantity
 function addToCart(name, price, qty = 1) {
     if (cart[name]) {
         cart[name].quantity += qty;
@@ -55,13 +55,14 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// Quantity buttons for single product page
+// Update UI on quantity increase via quantity button (single product page)
 function increaseQty(button) {
     const container = button.closest('.quantity-selector');
     const input = container.querySelector('.quantity');
     input.value = parseInt(input.value, 10) + 1;
 }
 
+// Update UI on quantity decrease via quantity button (single product page)
 function decreaseQty(button) {
     const container = button.closest('.quantity-selector');
     const input = container.querySelector('.quantity');
@@ -69,6 +70,7 @@ function decreaseQty(button) {
     if (current > 1) input.value = current - 1;
 }
 
+// Clear entire cart
 function clearCart() {
     cart = {};
     localStorage.removeItem('cart');
@@ -100,19 +102,20 @@ document.addEventListener('DOMContentLoaded', () => {
         const totalDisplay = item.querySelector('.item-total');
         const deleteBtn = item.querySelector('.remove-item img');
 
+        // If the product is not in the cart object, hide the item
         if (!name || !(name in cart)) {
             item.style.display = 'none';
             return;
         }
 
-        // Populate quantity and total
+        // Set the quantity input and item total price
         const quantity = cart[name].quantity;
         qtyInput.value = quantity;
         const total = (price * quantity).toFixed(2);
         totalDisplay.innerText = 'Total: $' + total;
         subtotal += parseFloat(total);
 
-        // Live update quantity
+        // Update quantity (decrement)
         item.querySelector('.qty-btn:nth-child(1)').onclick = () => {
             if (cart[name].quantity > 1) {
                 cart[name].quantity--;
@@ -121,13 +124,14 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         };
 
+        // Update quantity (increment)
         item.querySelector('.qty-btn:nth-child(3)').onclick = () => {
             cart[name].quantity++;
             qtyInput.value = cart[name].quantity;
             updateCartItem(name, price, item);
         };
 
-        // Delete item
+        // Handle product deletion
         deleteBtn.onclick = () => {
             delete cart[name];
             item.remove();
@@ -136,7 +140,7 @@ document.addEventListener('DOMContentLoaded', () => {
         };
     });
 
-    // Update totals
+    // Display updated subtotal and total in the cart summary
     if (subtotalEl) subtotalEl.innerText = '$' + subtotal.toFixed(2);
     if (totalEl) totalEl.innerText = '$' + subtotal.toFixed(2);
 
@@ -147,14 +151,15 @@ document.addEventListener('DOMContentLoaded', () => {
         if (cartEmptyText) cartEmptyText.style.display = 'block';
     }
 
-    // Add shipping listeners
+    // Listen for shipping method changes to recalculate total
     document.querySelectorAll('input[name="shipping"]').forEach(radio => {
         radio.addEventListener('change', updateShippingCost);
     });
 
-    updateShippingCost();
+    updateShippingCost(); // Initial total computation
 });
 
+// Check if the cart is empty, and visually disable cart layout and checkout if so
 document.addEventListener('DOMContentLoaded', () => {
     const cartContainer = document.querySelector('.cart-items-container');
     const cartEmptyText = document.querySelector('.cart-empty-text');
@@ -168,10 +173,10 @@ document.addEventListener('DOMContentLoaded', () => {
             // Hide item containers and cart summary
             document.querySelectorAll('.cart-item, .cart-summary, .btn-group').forEach(el => el.style.display = 'none');
 
-            // Show empty message section
+            // Display empty cart text
             if (cartEmptyText) cartEmptyText.style.display = 'block';
 
-            // Handle <a> checkout button
+            // Disable the <a> checkout button so user can't proceed
             const checkoutBtn = document.querySelector('.checkout-btn');
             if (checkoutBtn) {
                 checkoutBtn.classList.add('disabled');
@@ -182,9 +187,10 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    checkEmptyCart(); // Run on load
+    checkEmptyCart(); // Run the function immediately when page loads
 });
 
+// Recalculate individual item total and overall cart subtotal
 function updateCartItem(name, price, item) {
     const qty = cart[name].quantity;
     const total = (qty * price).toFixed(2);
@@ -193,6 +199,7 @@ function updateCartItem(name, price, item) {
     recalculateTotals();
 }
 
+// Recalculate subtotal and total with shipping cost
 function recalculateTotals() {
     let subtotal = 0;
 
@@ -221,7 +228,7 @@ function recalculateTotals() {
     updateShippingCost();
 }
 
-
+// Apply shipping method and update total price
 function updateShippingCost() {
     const subtotal = parseFloat(document.querySelector('.subtotal').innerText.replace('$', '')) || 0;
     const shippingMethod = document.querySelector('input[name="shipping"]:checked');
